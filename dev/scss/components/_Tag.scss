@@ -1,0 +1,54 @@
+.Tag {
+  @include xsmallcaps;
+  display: inline-block;
+  padding: 10px;
+  line-height: 11px;
+  color: $white;
+  text-align: center;
+  text-decoration: none;
+  background: $primary;
+  border: 0;
+  cursor: pointer;
+  &._midwest {
+    color: $body;
+    background: $midwest;
+    &:hover {
+      background: darken($midwest, 5%);
+    }
+  }
+  &._south {
+    color: $body;
+    background: $south;
+    &:hover {
+      background: darken($south, 5%);
+    }
+  }
+  &._northeast {
+    color: $body;
+    background: $northeast;
+    &:hover {
+      background: darken($northeast, 5%);
+    }
+  }
+  &._west {
+    color: $body;
+    background: $west;
+    &:hover {
+      background: darken($west, 5%);
+    }
+  }
+  &._online {
+    color: $body;
+    background: $online;
+    &:hover {
+      background: darken($online, 5%);
+    }
+  }
+  &._all {
+    color: $white;
+    background: $navHighlight;
+    &:hover {
+      background: darken($navHighlight, 5%);
+    }
+  }
+}

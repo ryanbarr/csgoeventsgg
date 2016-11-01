@@ -1,0 +1,75 @@
+{% import '_includes/forms' as forms %}
+
+{% includeCssResource "sherlock/css/style.css" %}
+
+
+<div class="sherlock-settings">
+
+    <h2>The free version of Sherlock is available to use on a Craft Personal edition only. It has a limited feature set and is missing the following features:</h2>
+
+    <div class="missing-fields">
+
+        {{ forms.field({
+        	label: 'Notification Emails'|t,
+        	instructions: 'Sends notification emails about security issues'|t,
+        }) }}
+
+        {{ forms.field({
+        	label: 'Plugin Vulnerabilities'|t,
+        	instructions: 'Notifies about known vulnerabilities in installed plugins'|t,
+        }) }}
+
+        {{ forms.field({
+        	label: 'API Key'|t,
+        	instructions: 'Allows calls to the plugin from a cron job to run scans on a regular basis'|t,
+        }) }}
+
+        {{ forms.field({
+          label: 'Restrict Control Panel Access To IP Addresses'|t,
+          instructions: 'Restricts access to the control panel to a list of IP addresses'|t,
+        }) }}
+
+        {{ forms.field({
+          label: 'Restrict Front-End Access To IP Addresses'|t,
+          instructions: 'Restricts access to the front-end to a list of IP addresses'|t,
+        }) }}
+    </div>
+
+    <a href="https://craftpl.us/plugins/sherlock" class="btn go" target="_blank">Buy Sherlock Plugin License</a>
+
+    <hr />
+
+    {{ forms.lightswitchField({
+      first: true,
+      label: 'Live Mode'|t,
+      name: 'liveMode',
+      instructions: 'Whether the site is live – if on then CP alerts will be shown to all users that have access to the Sherlock plugin and notification emails will be sent if the site scan status changes from pass to fail and if known vulnerabilities are detected in installed plugins'|t,
+      on: settings.liveMode,
+      errors: settings.getErrors('liveMode')
+    }) }}
+
+    {{ forms.lightswitchField({
+    	label: 'High Security Level'|t,
+    	name: 'highSecurityLevel',
+    	instructions: 'Whether Sherlock should be extra critical of security issues and the resulting warnings'|t,
+    	on: settings.highSecurityLevel,
+    	errors: settings.getErrors('highSecurityLevel')
+    }) }}
+
+    {{ forms.lightswitchField({
+    	label: 'Header Protection'|t,
+    	name: 'headerProtection',
+    	instructions: 'Protects your site by setting HTTP response headers that provide added security'|t,
+    	on: settings.headerProtection,
+    	errors: settings.getErrors('headerProtection')
+    }) }}
+
+    {{ forms.lightswitchField({
+      label: 'Log All Events'|t,
+      name: 'logAllEvents',
+      instructions: 'Whether to log events even when Dev Mode is disabled'|t,
+      on: settings.logAllEvents,
+      errors: settings.getErrors('logAllEvents')
+    }) }}
+
+</div>

@@ -1,0 +1,54 @@
+.north {
+  height: 80px;
+  margin: 0 0 $major 0;
+  background: $nav;
+  .logo {
+    @include xsmallcaps;
+    float: left;
+    line-height: 80px;
+    color: $white;
+    text-decoration: none;
+  }
+  nav {
+    float: right;
+    overflow: hidden;
+    > ul {
+      float: left;
+      > li {
+        position: relative;
+        display: inline;
+        float: left;
+        margin: 0 0 0 40px;
+        &:before {
+          position: absolute;
+          top: 32px;
+          left: -25px;
+          content: "\2022";
+        }
+        &:first-child {
+          margin-left: 0;
+          &:before {
+            content: "";
+          }
+        }
+        > a {
+          @include xsmallcaps;
+          float: left;
+          line-height: 80px;
+          color: $white;
+          text-decoration: none;
+        }
+        &.highlight {
+          margin: 0 0 0 20px;
+          &:before {
+            content: "";
+          }
+          > a {
+            padding: 0 20px;
+            background: $navHighlight;
+          }
+        }
+      }
+    }
+  }
+}

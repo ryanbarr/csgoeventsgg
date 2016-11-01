@@ -1,0 +1,39 @@
+.eventdetail{
+	&-main{
+		@include csgoegg-u-3-4;
+		padding: 0 $major 0 0;
+	}
+	
+	&-title{
+		@include gothamBold;
+		font-size: 28px;
+	  line-height: 34px;
+	  margin: 0 0 $minor 0;
+	}
+
+	&-ctas{
+		@include csgoegg-u-1-4;
+		padding: 0 0 $major 0;
+	}
+
+	&-map{
+		margin: 0 0 $small 0;
+		> img{
+			display: block;
+			max-width: 100%;
+		}
+	}
+	&-address{
+		@include gothamMedium;
+		margin: 0 0 $minor 0;
+		font-size: $type-base-1;
+		text-transform: uppercase;
+		line-height: 21px;
+		text-align: center;
+	}
+	&-actions{
+		&-action{
+			margin: 0 0 $small 0;
+		}
+	}
+}

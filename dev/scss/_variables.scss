@@ -1,0 +1,71 @@
+// Move all of these out into 'tokens' into their own repo/package. Consider theming for different MCGG properties.
+
+// Colors
+$primary: #2FE7BE;
+$secondary: #727DF0;
+$white: #ffffff;
+$subtle: #DCDCE3;
+
+$body: #2B2F3E;
+$bodyLight: #A3AEC6;
+$nav: #34394A;
+$navHighlight: #3B4153;
+$passive: #99AACE;
+$footer: #171A22;
+$footerDark: #0F1015;
+$footerDarkText: #5C6577;
+$footerTitle: #2F3A51;
+
+$midwest: #FFB2B9;
+$south: #D2FBA8;
+$northeast: #AFDFFF;
+$west: #FFD09F;
+$online: #FFE894;
+
+$twitch: #6441A5;
+
+// Fonts
+$font-primary: "Gotham SSm A", "Gotham SSm B", Helvetica, Arial, sans-serif;
+$font-secondary: "Archer SSm A", "Archer SSm B", Georgia, serif;
+
+@mixin gothamBook() {
+	font-family: $font-primary;
+	font-style: normal;
+	font-weight: 400;
+}
+@mixin gothamMedium() {
+	font-family: $font-primary;
+	font-style: normal;
+	font-weight: 500;
+}
+@mixin gothamBold() {
+	font-family: $font-primary;
+	font-style: normal;
+	font-weight: 700;
+}
+@mixin archerBook() {
+	font-family: $font-secondary;
+	font-style: normal;
+	font-weight: 500;
+}
+@mixin archerBold() {
+	font-family: $font-secondary;
+	font-style: normal;
+	font-weight: 800;
+}
+
+// Type Scale
+$type-base: 16px;
+$type-base-1: 13px;
+$type-base-2: 11px;
+$type-base-3: 9px;
+
+// Breakpoints
+$large: 980px;
+
+// Spacing
+$major: 40px;
+$minor: 20px;
+$small: 10px;
+
+$capsLetterSpacing: 4px;

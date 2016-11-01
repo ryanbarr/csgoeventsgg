@@ -1,0 +1,27 @@
+.Button {
+	@include xsmallcaps;
+	display: inline-block;
+	padding: 10px;
+	line-height: 1;
+	color: $white;
+	text-align: center;
+	text-decoration: none;
+	background: $primary;
+	border: 0;
+	cursor: pointer;
+
+	&._primary {
+		color: $white;
+		background: $primary;
+		&:hover {
+			background: darken($primary, 5%);
+		}
+	}
+	&._secondary {
+		color: $white;
+		background: $secondary;
+		&:hover {
+			background: darken($secondary, 5%);
+		}
+	}
+}

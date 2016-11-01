@@ -1,0 +1,7 @@
+craft/storage/runtime/
+craft/storage/userphotos/
+public/assets
+node_modules
+
+.DS_Store
+*/.DS_Store

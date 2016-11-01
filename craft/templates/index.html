@@ -1,0 +1,35 @@
+{% extends "_layout" %}
+
+{% block content %}
+  <div class="view home columns">
+    <div class="upcoming">
+      <h2 class="smalltitle">Upcoming Events</h2>
+      <div class="js-filterable-events">
+      {% for entry in craft.entries.section('events').limit(0).find() %}
+        {% include 'components/_Event' %}
+      {% endfor %}
+      </div>
+    </div>
+    <aside class="filtering">
+      <div class="widget _tags">
+        <h3 class="smalltitle">Filter by Region</h3>
+        <ul>
+          {% for region in craft.tags.group('regions') %}
+            <li>
+              <a href="#" class="{{'Tag js-filter _'~region.slug}}" data-filter="{{'_'~region.slug}}">{{ region.title }}</a>
+            </li>
+          {% endfor %}
+          <li>
+            <a href="#" class="Tag _all js-filter" data-filter="*">Show All</a>
+          </li>
+        </ul>
+      </div>
+      <div class="widget _past">
+        <h3 class="smalltitle">Past Events</h3>
+        {% for entry in craft.entries.section('events').limit(0).find() %}
+          {% include 'components/_EventWidget' %}
+        {% endfor %}
+      </div>
+    </aside>
+  </div>
+{% endblock %}

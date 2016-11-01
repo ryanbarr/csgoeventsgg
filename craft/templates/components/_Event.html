@@ -1,0 +1,45 @@
+{% set eventClass = "Event _compact _" ~ entry.slug %}
+{% set regions = entry.regions %}
+
+{% if regions | length %}
+  {% for region in regions %}
+    {% set eventClass = eventClass ~ " _" ~ region.slug %}
+  {% endfor %}
+{% endif %}
+
+<article class="{{eventClass}}">
+  <div class="Event-content">
+    {% set hosts = entry.hosts %}
+    {% if hosts | length %}
+      {% for host in hosts %}
+        {% set logo = host.hostlogo.first() %}
+        {% if logo %}
+          <span class="Event-host">
+            <img src="{{ siteUrl }}{{ logo.url }}" alt="{{ host.title }}">
+          </span>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    <div class="Event-date">
+      <span class="Event-date-day">{{ entry.starttime | date('d') }}</span>
+      <span class="Event-date-month">{{ entry.starttime | date('M') }}</span>
+    </div>
+    <div class="Event-title">
+      <h3 class="Event-title-header"><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+      {% set eventtypes = entry.eventtypes %}
+      <p class="Event-title-sub">{% if entry.cashpot %}{{ entry.cashpot }}{% endif %} {% for eventtype in eventtypes %}{{ eventtype }}{% endfor %}</p>
+    </div>
+    {% if entry.shortlocation %}
+      <div class="Event-shortlocation"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>{{ entry.shortlocation }}</div>
+    {% endif %}
+  </div>
+  <div class="Event-actions">
+    <a href="{{ entry.url }}" class="Event-actions-view">View Details</a>
+    {% if regions | length %}
+      {% for region in regions %}
+        {% set regionClass = "Event-actions-region  _" ~ region.slug %}
+        <a href="#" class="{{ regionClass }}">{{ region.title }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+</article>

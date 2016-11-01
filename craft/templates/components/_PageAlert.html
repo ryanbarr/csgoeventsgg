@@ -1,0 +1,7 @@
+{% if alerts.alerttype == "twitch" %}
+<div class="PageAlert _twitch">
+	<div class="boundary">
+		<p>{% for host in alerts.hosts %}{{ host.title }}{% endfor %} is LIVE! <a href="{{ alerts.twitchurl }}" title="Twitch.tv">{{ alerts.twitchurl }}</a></p>
+	</div>
+</div>
+{% endif %}

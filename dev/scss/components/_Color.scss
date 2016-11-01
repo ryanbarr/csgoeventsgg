@@ -1,0 +1,83 @@
+.Color {
+	position: relative;
+	display: block;
+	width: 150px;
+	height: 150px;
+	text-decoration: none;
+	background: $white;
+	border: 5px solid $white;
+	box-shadow: 0 0 2px $subtle;
+	> label {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		padding: 10px;
+		font-size: 11px;
+		line-height: 11px;
+		color: $body;
+		text-align: center;
+		text-transform: none;
+		background: $white;
+		box-shadow: 0 0 2px $subtle;
+	}
+	&._primary {
+		background: $primary;
+	}
+	&._secondary {
+		background: $secondary;
+	}
+	&._white {
+		background: $white;
+	}
+	&._subtle {
+		background: $subtle;
+	}
+	&._body {
+		background: $body;
+	}
+	&._bodyLight {
+		background: $bodyLight;
+	}
+	&._nav {
+		background: $nav;
+	}
+	&._navHighlight {
+		background: $navHighlight;
+	}
+	&._passive {
+		background: $passive;
+	}
+	&._footer {
+		background: $footer;
+	}
+	&._footerDark {
+		background: $footerDark;
+	}
+	&._footerDarkText {
+		background: $footerDarkText;
+	}
+	&._footerTitle {
+		background: $footerTitle;
+	}
+	&._midwest {
+		background: $midwest;
+	}
+	&._south {
+		background: $south;
+	}
+	&._northeast {
+		background: $northeast;
+	}
+	&._west {
+		background: $west;
+	}
+	&._online {
+		background: $online;
+	}
+	&._twitch {
+		background: $twitch;
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "csgoeventsgg",
+  "version": "1.0.0",
+  "description": "A CS:GO events directory.",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/madcitygg/csgoeventsgg.git"
+  },
+  "author": "Eric Boyer",
+  "homepage": "https://bitbucket.org/madcitygg/csgoeventsgg#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "cssnano": "^3.7.4",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.2.1",
+    "pixrem": "^3.0.1"
+  }
+}

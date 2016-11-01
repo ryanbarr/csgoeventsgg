@@ -1,0 +1,21 @@
+.EventWidget {
+	margin: 0 0 $minor 0;
+	&-header {
+		margin: 0;
+		> a {
+			@include gothamMedium;
+			//TODO
+			font-size: 20px;
+			line-height: 26px;
+			color: $passive;
+			text-decoration: none;
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+	&-date {
+		@include gothamBook;
+		font-size: $type-base-2;
+	}
+}

@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+	Header always set Access-Control-Allow-Origin "*"
+	
+	RewriteEngine On
+
+	# Send would-be 404 requests to Craft
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+	RewriteRule (.+) index.php?p=$1 [QSA,L]
+
+	#Force non-www:
+	RewriteCond %{HTTP_HOST} ^www\.csgoevents\.gg [NC]
+	RewriteRule ^(.*)$ https://csgoevents.gg/$1 [L,R=301]
+</IfModule>

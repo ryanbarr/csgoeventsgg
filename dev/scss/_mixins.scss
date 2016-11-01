@@ -1,0 +1,26 @@
+@mixin smallcaps() {
+	@include gothamMedium;
+	font-size: $type-base-1;
+	text-transform: uppercase;
+	letter-spacing: $capsLetterSpacing;
+}
+
+@mixin xsmallcaps() {
+	@include gothamMedium;
+	font-size: $type-base-2;
+	text-transform: uppercase;
+	letter-spacing: $capsLetterSpacing;
+}
+
+@mixin xxsmallcaps() {
+	@include gothamMedium;
+	font-size: $type-base-3;
+	text-transform: uppercase;
+	letter-spacing: $capsLetterSpacing - 1;
+}
+
+// TODO
+@mixin nindent() {
+	text-indent: -9999px;
+	overflow: hidden;
+}

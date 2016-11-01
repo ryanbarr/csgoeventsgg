@@ -1,0 +1,19 @@
+.PageAlert {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  p {
+    @include xsmallcaps;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 1px;
+    marign: 0;
+    > a {
+      color: $white;
+    }
+  }
+  &._twitch {
+    background: $twitch;
+  }
+}

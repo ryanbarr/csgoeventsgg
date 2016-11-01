@@ -1,0 +1,18 @@
+{% extends "_layout" %}
+
+{% set templateRegion = 'midwest' %}
+
+{% block content %}
+	<div class="view region">
+	<h2 class="smalltitle">Upcoming Midwest Events</h2>
+		{% set region = craft.tags.search(templateRegion).first() %}
+		{% set entries = craft.entries.relatedTo(region).order('title') %}
+		{% if entries | length %}
+	    {% for entry in entries %}
+	        {% include 'components/_Event' %}
+	    {% endfor %}
+		{% else %}
+		    <p>No entries could be found with that tag.</p>
+		{% endif %}
+	</div>
+{% endblock %}

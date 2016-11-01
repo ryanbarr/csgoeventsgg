@@ -1,0 +1,59 @@
+.south {
+	@include xsmallcaps;
+	padding: $major 0;
+	color: $bodyLight;
+	text-align: center;
+	background: $footer;
+	&-logo {
+		display: inline-block;
+		margin: 0 0 $major 0;
+		color: $footerTitle;
+		text-decoration: none;
+		&:hover {
+			color: $white;
+		}
+	}
+	&-links {
+		width: 100%;
+		margin: 0 0 $minor 0;
+		overflow: hidden;
+		> ul {
+			position: relative;
+			left: 50%;
+			display: block;
+			float: left;
+			list-style: none;
+			> li {
+				position: relative;
+				right: 50%;
+				display: block;
+				float: left;
+				margin: 0 0 0 $minor;
+				&:first-child {
+					margin-left: 0;
+				}
+				> a {
+					color: $bodyLight;
+					text-decoration: none;
+					&:hover {
+						color: $white;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+	&-copyright {
+		@include xxsmallcaps;
+		padding: 10px 0;
+		color: $footerDarkText;
+		background: $footerDark;
+		a {
+			color: $white;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+	<meta charset="utf-8" />
+	<meta name='robots' content='noindex,follow' />
+
+	<!-- <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6295672/6572552/css/fonts.css" /> -->
+	<link rel="stylesheet" type="text/css" href="{{ siteUrl }}css/app.css" />
+
+	<script src="{{ siteUrl }}js/vendor/modernizr-2.8.2.js"></script>
+</head>
+{% if bodyClass is defined %}
+	<body class="body {{ bodyClass }}">
+{% else %}
+	<body class="body">
+{% endif %}
+	<div class="app">
+		{% if alerts.alerttoggle %}
+			{% include 'components/_PageAlert' %}
+		{% endif %}
+		
+		{% include 'layout/_north' %}
+
+		<main class="content" role="main">
+			<div class="boundary">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</main><!-- /.content -->
+
+		{% include 'layout/_south' %}
+	</div>
+
+	<!-- JS -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+	<script src="{{ siteUrl }}js/csgoeventsgg.min.js"></script>
+</body>
+</html>

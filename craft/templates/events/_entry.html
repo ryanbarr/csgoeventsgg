@@ -1,0 +1,160 @@
+{% extends "_layout" %}
+{% set bodyClass = '_detail' %}
+
+{% block content %}
+	<article class="view eventdetail columns">
+		<div class="eventdetail-main">
+			<div class="eventdetail-date">DATE HERE</div>
+			<h1 class="eventdetail-title">{{ entry.title }}</h1>
+
+			<!-- BUILD NOTICE STYLES
+			{{ entry.eventnotice }}
+			-->
+			
+			{{ entry.spectatorcost }}
+			{{ entry.starttime }}
+			{{ entry.subtitle }}
+			{{ entry.tldr }}
+			{{ entry.tournamentformat }}
+			{{ entry.twitchurl }}
+
+			{% set hosts = craft.tags({
+				relatedTo: { sourceElement: entry, field: "host" },
+				order:     "sortOrder",
+				limit:     null
+			}) %}
+
+			{% if hosts | length %}
+				<h3>Hosts</h3>
+				{% for host in hosts %}
+				  {{ host.title }}
+				{% endfor %}
+			{% endif %}
+
+			{% set regions = craft.tags({
+				relatedTo: { sourceElement: entry, field: "region" },
+				order:     "sortOrder",
+				limit:     null
+			}) %}
+			
+			{% if regions | length %}
+				<h3>Regions</h3>
+				{% for region in regions %}
+				  {{ region.title }}
+				{% endfor %}
+			{% endif %}
+
+			{% set maps = craft.tags({
+				relatedTo: { sourceElement: entry, field: "maps" },
+				order:     "sortOrder",
+				limit:     null
+			}) %}
+			
+			{% if maps | length %}
+				<h3>Maps</h3>
+				{% for map in maps %}
+				  {{ map.title }}
+				{% endfor %}
+			{% endif %}
+
+			{% set types = craft.tags({
+				relatedTo: { sourceElement: entry, field: "type" },
+				order:     "sortOrder",
+				limit:     null
+			}) %}
+			
+			{% if types | length %}
+				<h3>Types</h3>
+				{% for type in types %}
+				  {{ type.title }}
+				{% endfor %}
+			{% endif %}
+
+			{% if entry.promotionallinks | length %}
+				<h3>Promotional Links</h3>
+				<ul>
+				{% for promotionallink in entry.promotionallinks %}
+					{% if promotionallink.type == "promourl" %}
+						<li><a href="{{ promotionallink.promourl }}" title="{{ promotionallink.promoname }}">{{ promotionallink.promoname }}</a></li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if entry.prizes | length %}
+				<h3>Prizes</h3>
+				<ul>
+				{% for prize in entry.prizes %}
+					{% if prize.type == "prize" %}
+						<li>{{ prize.prize }}</li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if entry.entrycosts | length %}
+				<h3>Costs</h3>
+				<ul>
+				{% for entrycost in entry.entrycosts %}
+					{% if entrycost.type == "price" %}
+						<li>{{ entrycost.price }}</li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+	<!-- 		{% if entry.bracketembeds | length %}
+				<h3>Bracket Embeds</h3>
+				{% for bracketembed in entry.bracketembeds %}
+					{% if bracketembed.type == "bracketembed" %}
+						{{ bracketembed.bracketembedhtml|raw }}
+					{% endif %}
+				{% endfor %}
+			{% endif %} -->
+
+
+
+			{% if entry.placements | length %}
+				<h3>Placements</h3>
+				<ul>
+				{% for placement in entry.placements %}
+					{% if placement.type == "placement" %}
+						{{ placement.teamplacement }}
+						{{ placement.teamname }}
+						{{ placement.teamwinnings }}
+						{% if placement.teamphoto | length %}
+							{% for teamphoto in placement.teamphoto %}
+								<img src="{{ teamphoto.getUrl('gallerythumbnail') }}" width="{{ teamphoto.getWidth('gallerythumbnail') }}" height="{{ teamphoto.getHeight('gallerythumbnail') }}">
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+
+
+			{% if entry.gallery | length %}
+				{% for asset in entry.gallery %}
+					<img src="{{ asset.getUrl('gallerythumbnail') }}" width="{{ asset.getWidth('gallerythumbnail') }}" height="{{ asset.getHeight('gallerythumbnail') }}">
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="eventdetail-ctas">
+			<div class="eventdetail-map">
+				<img src="https://maps.googleapis.com/maps/api/staticmap?center={{ entry.locationgeo }}&zoom=17&markers=color:0xFFB2B9%7C{{ entry.locationgeo }}&size=300x400&key=AIzaSyCL3a3pIefqOoykJ4s4Q3fPCDE6Gxf-DzA" />
+			</div>
+			<div class="eventdetail-address">
+				{{ entry.location }}
+			</div>
+			<div class="eventdetail-actions">
+				<div class="eventdetail-actions-action">
+					<a href="#" class="Button _primary">Sign Up</a>
+				</div>
+				<div class="eventdetail-actions-action">
+					<a href="#" class="Button _secondary">View Details</a>
+				</div>
+			</div>
+		</div>
+	</article>
+{% endblock %}

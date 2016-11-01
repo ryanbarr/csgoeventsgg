@@ -1,0 +1,32 @@
+.styleguide {
+	padding: $major;
+	margin: 0 0 $major 0;
+	color: $body;
+	background: $white;
+	&-block {
+		padding: 0 0 $minor 0;
+		margin: 0 0 $minor 0;
+		border-bottom: 1px solid $subtle;
+		&:last-child {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			border-bottom: 0;
+		}
+		&-subheader {
+			@include xsmallcaps;
+		}
+		&-child {
+			margin: 0 0 $minor 0;
+		}
+		&-colors {
+			padding: 0;
+			margin: 0 -10px;
+			overflow: hidden;
+			> li {
+				display: inline;
+				float: left;
+				margin: 10px;
+			}
+		}
+	}
+}

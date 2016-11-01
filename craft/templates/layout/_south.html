@@ -1,0 +1,31 @@
+<footer class="south">
+	<div class="south-sitemap">
+		<div class="boundary">
+			<a href="{{ siteUrl }}" class="south-logo">{{ siteName }}</a>
+			<!--<div class="south-links">
+				<ul>
+					<li>
+						<a href="#">Photos</a>
+					</li>
+					<li>
+						<a href="#">Videos</a>
+					</li>
+				</ul>
+			</div>
+			<div class="south-links">
+				<ul>
+					{% for region in craft.tags.group('regions') %}
+            <li>
+              <a href="{{ siteUrl }}{{ region.slug }}">{{ region.title }} Events</a>
+            </li>
+          {% endfor %}
+				</ul>
+			</div>-->
+		</div>
+	</div>
+	<div class="south-copyright">
+		<div class="boundary">
+			<p>Copyright {{ now.year }} <a href="http://madcity.gg" title="Mad City">Mad City, LLC</a>. All rights reserved.</p>
+		</div>
+	</div>
+</footer><!-- /.south -->

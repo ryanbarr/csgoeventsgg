@@ -1,0 +1,183 @@
+.Event {
+  width: 100%;
+  margin: 0 0 $major 0;
+  color: $body;
+
+  &-content {
+    padding: 25px $major;
+    background: $white;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-host {
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    margin-top: -25px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid $white;
+    > img {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &-date {
+    text-align: center;
+    flex-shrink: 0;
+    &-day,
+    &-month{
+      display: block;
+    }
+    &-day {
+      @include gothamBold;
+      font-size: 28px;
+      line-height: 28px;
+      margin: 0 0 2px 0;
+    }
+    &-month {
+      @include gothamBook;
+      font-size: $type-base-2;
+      line-height: $type-base-2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  &-title {
+    padding: 0 30px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    &-header {
+      margin: 0 0 10px 0;
+      > a{
+        @include gothamBold;
+        // TODO
+        font-size: 28px;
+        line-height: 34px;
+        text-decoration: none;
+        color: $body;
+      }
+    }
+    &-sub {
+      @include gothamBook;
+      color: $passive;
+      font-size: $type-base;
+      line-height: $type-base;
+    }
+  }
+
+  &-shortlocation {
+    @include gothamBook;
+    color: $passive;
+    font-size: $type-base;
+    line-height: $type-base;
+    flex-shrink: 0;
+  }
+
+  &-actions {
+    @include csgoegg-g;
+
+    &-view,
+    &-region {
+      @include csgoegg-u-1-2;
+      @include xsmallcaps;
+      background: $secondary;
+      color: $white;
+      text-align: center;
+      line-height: 30px;
+      text-decoration: none;
+    }
+    &-view {
+      &:hover {
+        background: darken($secondary, 5%);
+      }
+    }
+    &-region {
+      &._midwest {
+        background: $midwest;
+        color: $body;
+        &:hover {
+          background: darken($midwest, 5%);
+        }
+      }
+
+      &._south {
+        background: $south;
+        color: $body;
+        &:hover {
+          background: darken($south, 5%);
+        }
+      }
+
+      &._northeast {
+        background: $northeast;
+        color: $body;
+        &:hover {
+          background: darken($northeast, 5%);
+        }
+      }
+
+      &._west {
+        background: $west;
+        color: $body;
+        &:hover {
+          background: darken($west, 5%);
+        }
+      }
+
+      &._online {
+        background: $online;
+        color: $body;
+        &:hover {
+          background: darken($online, 5%);
+        }
+      }
+    }
+  }
+
+  &._midwest{
+    .Event-shortlocation {
+      > i{
+        color: $midwest;
+      }
+    }    
+  }
+  &._south{
+    .Event-shortlocation {
+      > i{
+        color: $south;
+      }
+    }
+  }
+  &._northeast{
+    .Event-shortlocation {
+      > i{
+        color: $northeast;
+      }
+    }
+  }
+  &._west{
+    .Event-shortlocation {
+      > i{
+        color: $west;
+      }
+    }
+  }
+  &.online{
+    .Event-shortlocation {
+      > i{
+        color: $online;
+      }
+    }
+  }
+}

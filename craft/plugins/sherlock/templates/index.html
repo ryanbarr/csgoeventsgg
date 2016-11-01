@@ -1,0 +1,77 @@
+{% extends "_layouts/cp" %}
+
+{% includeCssResource "sherlock/css/style.css" %}
+
+{% set title = craft.sherlock.pluginName %}
+{% set lastScan = craft.sherlock.lastScan %}
+{% set scan = craft.sherlock.runScan %}
+{% set faIcons = {'header': 'fa-lock', 'server': 'fa-server', 'upload': 'fa-upload', 'folder': 'fa-folder-o', 'files': 'fa-files-o', 'code': 'fa-code'} %}
+
+
+{% block content %}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <div class="sherlock">
+        <div class="buttons right">
+            <a href="{{ url('utils/logs/sherlock.log') }}" class="btn go">View Logs</a>
+        </div>
+
+        <h1>
+            <img width="32" height="32" src="{{ resourceUrl('sherlock/icons/' ~ (scan.pass ? 'pass' : 'fail') ~ '.svg') }}" />
+            Your site has <strong>{{ scan.pass ? 'pass' : 'fail' }}ed</strong> the <strong>{{ craft.sherlock.checkHighSecurityLevel ? 'high' : 'standard' }}</strong> security scan {{ scan.pass and scan.warning ? 'with <strong>warnings</strong>'|raw }}
+            <span class="info">{{ "This security scan result is determined by a set of criteria used by Sherlock's standard/high security level setting. This is only a guideline and cannot ensure that your site and server are 100% secure. The security of this site is solely the responsibility of the site owner."|t }}</span>
+        </h1>
+
+        <table class="data fullwidth">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>{{ "Test"|t }}</th>
+                    <th>{{ "Details"|t }}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for key, results in scan.results %}
+                {% for result in results %}
+                    <tr>
+                        <td>
+                            <img src="{{ resourceUrl('sherlock/icons/' ~ key ~ '.svg') }}" title="{{ key|capitalize }}" />
+                        </td>
+                        <td>
+                            <span class="{{ not result.pass ? 'fail' }}">{{result.name|t }}</span>
+                            {% if faIcons[result.type] is defined %}
+                                <i class="type fa {{ faIcons[result.type] }}" title="{{ result.typeName|t }}"></i>
+                            {% else %}
+                                <i class="type" data-icon="{{ result.type }}" title="{{ result.typeName|t }}"></i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="{{ not result.pass ? 'fail' }}">
+                                {% if key == 'pass' %}
+                                    {{ result.details.pass|t|raw }}
+                                {% elseif key == 'warning' %}
+                                    {{ result.details.warning|t|raw }}
+                                {% else %}
+                                    {{ (result.details.fail is defined ? result.details.fail : result.details.warning)|t|raw }}
+                                {% endif %}
+                                {{ result.value is defined ? result.value|raw }}
+                            </span>
+                            {% if result.info %}
+                                <span class="info">{{ result.info|t|raw }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.url %}
+                                <a href="{{ result.url }}" class="go" target="_blank">{{ "Docs"|t }}</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

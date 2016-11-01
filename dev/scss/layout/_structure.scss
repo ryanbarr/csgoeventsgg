@@ -1,0 +1,16 @@
+.app {
+	padding: $major 0 0 0;
+}
+
+.boundary {
+	width: $large;
+	margin: 0 auto;
+}
+
+.columns {
+	@include csgoegg-g;
+}
+
+@import "north";
+@import "content";
+@import "south";

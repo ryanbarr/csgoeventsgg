@@ -1,0 +1,306 @@
+@mixin csgoegg-g {
+  letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+  *letter-spacing: normal; /* reset IE < 8 */
+  *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
+  text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+
+  /*
+  Sets the font stack to fonts known to work properly with the above letter
+  and word spacings. See: https://github.com/yahoo/pure/issues/41/
+
+  The following font stack makes Pure Grids work on all known environments.
+
+  * FreeSans: Ships with many Linux distros, including Ubuntu
+
+  * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+  Arial to get picked up by the browser, even though neither is available
+  in Chrome OS.
+
+  * Droid Sans: Ships with all versions of Android.
+
+  * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+  */
+  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+
+  /*
+  Use flexbox when possible to avoid `letter-spacing` side-effects.
+
+  NOTE: Firefox (as of 25) does not currently support flex-wrap, so the
+  `-moz-` prefix version is omitted.
+  */
+
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+
+  /* IE10 uses display: flexbox */
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+}
+@mixin csgoegg-u {
+  display: inline-block;
+  *display: inline; /* IE < 8: fake inline-block */
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+@mixin restore_grid_font{
+  font-family: $font-primary;
+}
+.csgoegg-u-1, .csgoegg-u-1-1, .csgoegg-u-1-2, .csgoegg-u-1-3, .csgoegg-u-2-3, .csgoegg-u-1-4, .csgoegg-u-3-4, .csgoegg-u-1-5, .csgoegg-u-2-5, .csgoegg-u-3-5, .csgoegg-u-4-5, .csgoegg-u-5-5, .csgoegg-u-1-6, .csgoegg-u-5-6, .csgoegg-u-1-8, .csgoegg-u-3-8, .csgoegg-u-5-8, .csgoegg-u-7-8, .csgoegg-u-1-12, .csgoegg-u-5-12, .csgoegg-u-7-12, .csgoegg-u-11-12, .csgoegg-u-1-24, .csgoegg-u-2-24, .csgoegg-u-3-24, .csgoegg-u-4-24, .csgoegg-u-5-24, .csgoegg-u-6-24, .csgoegg-u-7-24, .csgoegg-u-8-24, .csgoegg-u-9-24, .csgoegg-u-10-24, .csgoegg-u-11-24, .csgoegg-u-12-24, .csgoegg-u-13-24, .csgoegg-u-14-24, .csgoegg-u-15-24, .csgoegg-u-16-24, .csgoegg-u-17-24, .csgoegg-u-18-24, .csgoegg-u-19-24, .csgoegg-u-20-24, .csgoegg-u-21-24, .csgoegg-u-22-24, .csgoegg-u-23-24, .csgoegg-u-24-24 {
+    display: inline-block;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+@mixin restore_column{
+    display: inline-block;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+    @include restore_grid_font;
+}
+.csgoegg-u-1-24 {
+    width: 4.1667%;}
+.csgoegg-u-1-12, .csgoegg-u-2-24 {
+    width: 8.3333%;}
+.csgoegg-u-1-8, .csgoegg-u-3-24 {
+    width: 12.5%;}
+.csgoegg-u-1-6, .csgoegg-u-4-24 {
+    width: 16.6667%;}
+.csgoegg-u-1-5 {
+    width: 20%;}
+.csgoegg-u-5-24 {
+    width: 20.8333%;}
+.csgoegg-u-1-4, .csgoegg-u-6-24 {
+    width: 25%;}
+.csgoegg-u-7-24 {
+    width: 29.1667%;}
+.csgoegg-u-1-3, .csgoegg-u-8-24 {
+    width: 33.3333%;}
+.csgoegg-u-3-8, .csgoegg-u-9-24 {
+    width: 37.5%;}
+.csgoegg-u-2-5 {
+    width: 40%;}
+.csgoegg-u-5-12, .csgoegg-u-10-24 {
+    width: 41.6667%;}
+.csgoegg-u-11-24 {
+    width: 45.8333%;}
+.csgoegg-u-1-2, .csgoegg-u-12-24 {
+    width: 50%;}
+.csgoegg-u-13-24 {
+    width: 54.1667%;}
+.csgoegg-u-7-12, .csgoegg-u-14-24 {
+    width: 58.3333%;}
+.csgoegg-u-3-5 {
+    width: 60%;}
+.csgoegg-u-5-8, .csgoegg-u-15-24 {
+    width: 62.5%;}
+.csgoegg-u-2-3, .csgoegg-u-16-24 {
+    width: 66.6667%;}
+.csgoegg-u-17-24 {
+    width: 70.8333%;}
+.csgoegg-u-3-4, .csgoegg-u-18-24 {
+    width: 75%;}
+.csgoegg-u-19-24 {
+    width: 79.1667%;}
+.csgoegg-u-4-5 {
+    width: 80%;}
+.csgoegg-u-5-6, .csgoegg-u-20-24 {
+    width: 83.3333%;}
+.csgoegg-u-7-8, .csgoegg-u-21-24 {
+    width: 87.5%;}
+.csgoegg-u-11-12, .csgoegg-u-22-24 {
+    width: 91.6667%;}
+.csgoegg-u-23-24 {
+    width: 95.8333%;}
+.csgoegg-u-1, .csgoegg-u-1-1, .csgoegg-u-5-5, .csgoegg-u-24-24 {
+    width: 100%}
+
+@mixin csgoegg-u-1-24 {
+    width: 4.1667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-12{
+    width: 8.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-2-24 {
+    width: 8.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-8{
+    width: 12.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-3-24 {
+    width: 12.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-6{
+    width: 16.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-4-24 {
+    width: 16.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-5 {
+    width: 20%;
+    @include restore_column;
+}
+@mixin csgoegg-u-5-24 {
+    width: 20.8333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-4{
+    width: 25%;
+    @include restore_column;
+}
+@mixin csgoegg-u-6-24 {
+    width: 25%;
+    @include restore_column;
+}
+@mixin csgoegg-u-7-24 {
+    width: 29.1667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-3{
+    width: 33.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-8-24 {
+    width: 33.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-3-8{
+    width: 37.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-9-24 {
+    width: 37.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-2-5 {
+    width: 40%;
+    @include restore_column;
+}
+@mixin csgoegg-u-5-12{
+    width: 41.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-10-24 {
+    width: 41.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-11-24 {
+    width: 45.8333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-2{
+    width: 50%;
+    @include restore_column;
+}
+@mixin csgoegg-u-12-24 {
+    width: 50%;
+    @include restore_column;
+}
+@mixin csgoegg-u-13-24 {
+    width: 54.1667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-7-12{
+    width: 58.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-14-24 {
+    width: 58.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-3-5 {
+    width: 60%;
+    @include restore_column;
+}
+@mixin csgoegg-u-5-8{
+    width: 62.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-15-24 {
+    width: 62.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-2-3{
+    width: 66.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-16-24 {
+    width: 66.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-17-24 {
+    width: 70.8333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-3-4{
+    width: 75%;
+    @include restore_column;
+}
+@mixin csgoegg-u-18-24 {
+    width: 75%;
+    @include restore_column;
+}
+@mixin csgoegg-u-19-24 {
+    width: 79.1667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-4-5 {
+    width: 80%;
+    @include restore_column;
+}
+@mixin csgoegg-u-5-6{
+    width: 83.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-20-24 {
+    width: 83.3333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-7-8{
+    width: 87.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-21-24 {
+    width: 87.5%;
+    @include restore_column;
+}
+@mixin csgoegg-u-11-12{
+    width: 91.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-22-24 {
+    width: 91.6667%;
+    @include restore_column;
+}
+@mixin csgoegg-u-23-24 {
+    width: 95.8333%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1{
+    width: 100%;
+    @include restore_column;
+}
+@mixin csgoegg-u-1-1{
+    width: 100%;
+    @include restore_column;
+}
+@mixin csgoegg-u-5-5{
+    width: 100%;
+    @include restore_column;
+}
+@mixin csgoegg-u-24-24 {
+    width: 100%;
+    @include restore_column;
+}

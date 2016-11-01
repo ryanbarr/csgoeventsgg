@@ -1,0 +1,14 @@
+{% extends "_layout" %}
+{% set title = "News" %}
+
+{% block content %}
+	<h1>Events</h1>
+
+	{% for entry in craft.entries.section('events').find() %}
+		<article>
+			<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+			<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+			{{ entry.body.getPage(1) }}
+		</article>
+	{% endfor %}
+{% endblock %}
